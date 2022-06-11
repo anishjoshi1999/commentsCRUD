@@ -10,19 +10,19 @@ app.set('view engine','ejs');
 
 // Comments
 const comments = [
-{
+{	id:1,
 	username:"Anish",
 	comment:'lol that is so funny'
 },
-{
+{	id:2,
 	username:"Pradip",
 	comment:'love from nepal'
 },
-{
+{	id:3,
 	username:"Roshan",
 	comment:'I liked it'
 },
-{
+{	id:4,
 	username:"Mahendra",
 	comment:'when are you getting married'
 }
@@ -42,6 +42,13 @@ app.post('/comments',(req,res)=>{
 	const {username,comment} = req.body
 	comments.push({username,comment})
 	res.redirect('/comments');
+})
+// to show to the details of comment
+app.get('/comments/:id',(req,res)=>{
+	const {id} = req.params
+	// searching comment through id
+	const foundComment = comments.find((comment) => comment.id === parseInt(id))
+	res.render('comments/show.ejs',{foundComment})
 })
 
 app.listen('3000',()=>{

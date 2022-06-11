@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Edit Comment</title>
+</head>
+<body>
+	<h1>Edit Comment</h1>
+	<form action="/comments/<%=foundComment.id%>?_method=PATCH" method="POST">
+		<section>
+			<label for="comment">Edit Comment</label>
+			<br>
+			<textarea name="comment" id="comment">
+				<%=foundComment.comment%>
+			</textarea>		
+		</section>
+		<button>Submit</button>
+	</form>
+</body>
+</html>

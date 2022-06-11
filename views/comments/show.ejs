@@ -9,5 +9,9 @@
 	<h1>Comment of id:<%=foundComment.id%></h1>
 	<h2><%=foundComment.comment%> - <%=foundComment.username%></h2>
 	<a href="/comments">Back to Comments</a>
+	<a href="/comments/<%=foundComment.id%>/edit">Edit Comment</a>
+	<form action="/comments/<%=foundComment.id%>?_method=DELETE" method="POST">
+		<button>Delete Comment</button>
+	</form>
 </body>
 </html>
